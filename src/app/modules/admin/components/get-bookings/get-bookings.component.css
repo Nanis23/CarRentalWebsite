@@ -1,0 +1,41 @@
+.booking-list-container {
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+nz-spin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%; /* Ensure it doesn't limit child width */
+}
+
+.table-scroll-wrapper {
+  display: block; /* Ensure proper layout rendering */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 100%; /* Occupy full width of parent */
+  max-width: 100%; /* Prevent overflow beyond parent */
+  margin: 0 auto; /* Center alignment */
+  box-sizing: border-box; /* Include padding in width */
+  border: 1px solid #e0e0e0; /* Visual boundary for debugging */
+}
+
+nz-table {
+  min-width: 1000px; /* Set table's minimum width */
+  table-layout: fixed; /* Force uniform column layout */
+  border-spacing: 0; /* Remove gaps between cells */
+}
+
+.table-scroll-wrapper::-webkit-scrollbar {
+  height: 8px; /* Visible height for debugging */
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: #108ee9;
+  border-radius: 5px;
+}
+
+.table-scroll-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}

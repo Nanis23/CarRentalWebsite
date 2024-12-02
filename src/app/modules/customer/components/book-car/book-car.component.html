@@ -1,0 +1,116 @@
+   <!-- <div class="car-list-container">
+    <nz-table
+      #basicTable
+      [nzData]="[car]"
+      [nzBordered]="true"
+      [nzScroll]="{ x: '1000px' }"
+    >
+      <thead>
+        <tr>
+          <th nzWidth="150px">Car Name</th>
+          <th nzWidth="150px">Brand</th>
+          <th nzWidth="150px">Color</th>
+          <th nzWidth="150px">Type</th>
+          <th nzWidth="150px">Transmission</th>
+          <th nzWidth="150px">Description</th>
+          <th nzWidth="150px">Price</th>
+          <th nzWidth="150px">Year</th>
+          <th nzWidth="150px">Image</th>
+          <th nzWidth="150px">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="car">
+          <td>{{ car.name }}</td>
+          <td>{{ car.brand }}</td>
+          <td>{{ car.color }}</td>
+          <td>{{ car.type }}</td>
+          <td>{{ car.transmission }}</td>
+          <td>{{ car.description }}</td>
+          <td>{{ car.price | currency }}</td>
+          <td>{{ car.year }}</td>
+          <td>
+            <img
+              [src]="processedImage"
+              alt="Car Image"
+              class="car-image"
+            />
+          </td>
+          <td>
+            <button nz-button nzType="primary">
+              Update Car
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+  
+  <ng-template #noCar>
+    <p>No car selected. Please select a car to view details.</p>
+  </ng-template>
+   -->
+   <div style="background-color: #F8F8F8; min-height: 91vh;">
+    <div style="padding-top: 10px;"></div>
+    <div style="margin-top: 10px;" class="child" *ngIf="car">
+      <div nz-row>
+        <div nz-col nzSpan="8">
+          <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="processedImage"
+            alt="Car Image" />
+        </div>
+        <div nz-col nzSpan="16">
+          <!-- Car Info Section (moved below the image) -->
+          <div>
+            <h2 style="cursor: pointer; color: #108ee9;">
+              {{ car.brand }} - {{ car.name }}
+            </h2>
+            <p>{{ car.description }}</p>
+            <h5>
+              Price: <b>{{ car.price | currency }}</b> - Color: <b>{{ car.color }}</b> -
+              Transmission: <b>{{ car.transmission }}</b> - Type: <b>{{ car.type }}</b> -
+              Year: <b>{{ car.year }}</b>
+            </h5>
+            <hr />
+          </div>
+        </div>
+  
+        <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working..." style="margin-top: 50px;">
+          <div class="dashboard-filter"
+            style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 20px;">
+            <form [formGroup]="validateForm" style="width: 100%; max-width: 400px;">
+              <div style="display: flex; flex-direction: column; gap: 15px; width: 100%;">
+                <!-- From Date Field -->
+                <nz-form-item>
+                  <nz-form-label nzFor="fromDate">From Date</nz-form-label>
+                  <nz-form-control>
+                    <nz-date-picker formControlName="fromDate" style="width: 100%;" nzPlaceHolder="Select From Date"
+                      [nzFormat]="dateFormat" id="fromDate"></nz-date-picker>
+                  </nz-form-control>
+                </nz-form-item>
+  
+                <!-- To Date Field -->
+                <nz-form-item>
+                  <nz-form-label nzFor="toDate">To Date</nz-form-label>
+                  <nz-form-control>
+                    <nz-date-picker formControlName="toDate" style="width: 100%;" nzPlaceHolder="Select To Date"
+                      [nzFormat]="dateFormat" id="toDate"></nz-date-picker>
+                  </nz-form-control>
+                </nz-form-item>
+  
+                <!-- Book Car Button -->
+                <div style="display: flex; justify-content: center;">
+                  <button class="filterBtn" nz-button nzType="primary" (click)="bookACar(validateForm.value)"
+                    style="width: 100%;">
+                    Book Car
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </nz-spin>
+      </div>
+    </div>
+  </div>
+  
+
+  

@@ -1,0 +1,186 @@
+<div class="update-car-container">
+    <form [formGroup]="updateForm" nz-form class="update-car-form">
+      <!-- Existing Image Preview -->
+      <!-- <div class="form-item">
+        <label for="existingImage">Existing Image:</label>
+        <img
+          *ngIf="existingImage"
+          [src]="existingImage"
+          alt="Existing Image Preview"
+          class="existing-image-preview"
+        />
+      </div> -->
+  
+      <!-- Choose Image -->
+      <!-- <div class="form-item">
+        <label for="carImage">Upload New Image (optional):</label>
+        <input
+          type="file"
+          id="carImage"
+          (change)="onFileSelected($event)"
+          accept="image/*"
+          class="file-input"
+        />
+        <img
+          *ngIf="imagePreview"
+          [src]="imagePreview"
+          alt="New Image Preview"
+          class="image-preview"
+        />
+      </div> -->
+
+      <!-- Existing Image or New Image -->
+<div class="form-item">
+  <label for="existingImage">Existing Image:</label>
+  <!-- If a new image is selected, show the new image preview in place of the existing image -->
+  <img 
+    *ngIf="imagePreview"
+    [src]="imagePreview"
+    alt="New Image Preview"
+    class="existing-image-preview"
+  />
+  <!-- If no new image is selected, show the existing image -->
+  <img 
+    *ngIf="!imagePreview && existingImage"
+    [src]="existingImage"
+    alt="Existing Image Preview"
+    class="existing-image-preview"
+  />
+</div>
+
+<!-- Choose Image -->
+<div class="form-item">
+  <label for="carImage">Upload New Image (optional):</label>
+  <input
+    type="file"
+    id="carImage"
+    (change)="onFileSelected($event)"  
+    accept="image/*"
+    class="file-input"
+  />
+</div>
+
+      <!-- Car Name -->
+      <div class="form-item">
+        <label for="name">Car Name:</label>
+        <input
+          type="text"
+          id="name"
+          nz-input
+          formControlName="name"
+          placeholder="Enter car name"
+        />
+      </div>
+  
+      <!-- Car Brand -->
+      <div class="form-item">
+        <label for="brand">Brand:</label>
+        <nz-select
+          id="brand"
+          nzPlaceHolder="Select car brand"
+          formControlName="brand"
+        >
+          <nz-option
+            *ngFor="let brand of listOfBrands"
+            [nzLabel]="brand"
+            [nzValue]="brand"
+          ></nz-option>
+        </nz-select>
+      </div>
+  
+      <!-- Car Type -->
+      <div class="form-item">
+        <label for="type">Type:</label>
+        <nz-select
+          id="type"
+          nzPlaceHolder="Select car type"
+          formControlName="type"
+        >
+          <nz-option
+            *ngFor="let type of listOfType"
+            [nzLabel]="type"
+            [nzValue]="type"
+          ></nz-option>
+        </nz-select>
+      </div>
+  
+      <!-- Transmission -->
+      <div class="form-item">
+        <label for="transmission">Transmission:</label>
+        <nz-select
+          id="transmission"
+          nzPlaceHolder="Select transmission"
+          formControlName="transmission"
+        >
+          <nz-option
+            *ngFor="let transmission of listOfTransmition"
+            [nzLabel]="transmission"
+            [nzValue]="transmission"
+          ></nz-option>
+        </nz-select>
+      </div>
+  
+      <!-- Color -->
+      <div class="form-item">
+        <label for="color">Color:</label>
+        <nz-select
+          id="color"
+          nzPlaceHolder="Select car color"
+          formControlName="color"
+        >
+          <nz-option
+            *ngFor="let color of listOfColor"
+            [nzLabel]="color"
+            [nzValue]="color"
+          ></nz-option>
+        </nz-select>
+      </div>
+  
+      <!-- Model Year -->
+      <div class="form-item">
+        <label for="year">Year of Production:</label>
+        <input
+          type="number"
+          id="year"
+          nz-input
+          formControlName="year"
+          placeholder="Enter car year of production"
+        />
+      </div>
+  
+      <!-- Price -->
+      <div class="form-item">
+        <label for="price">Price:</label>
+        <input
+          type="number"
+          id="price"
+          nz-input
+          formControlName="price"
+          placeholder="Enter car price"
+        />
+      </div>
+  
+      <!-- Description -->
+      <div class="form-item">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          nz-input
+          formControlName="description"
+          placeholder="Enter car description"
+          rows="4"
+        ></textarea>
+      </div>
+  
+      <!-- Submit Button -->
+      <button
+        nz-button
+        nzType="primary"
+        [disabled]="updateForm.invalid"
+       (click)="updateCar()"
+      >
+        Update Car
+      </button>
+    </form>
+  </div>
+  

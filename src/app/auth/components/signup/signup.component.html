@@ -1,0 +1,55 @@
+
+<div>
+    <br>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+        <input nz-input formControlName="email" id="email" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">
+        <input
+          nz-input
+          type="password"
+          id="password"
+          formControlName="password"
+          (ngModelChange)="updateConfirmValidator()"
+        />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirm Password</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Passwords do not match!">
+        <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label
+        [nzSm]="6"
+        [nzXs]="24"
+        nzFor="nickname"
+        nzRequired
+        nzTooltipTitle="What do you want others to call you?"
+      >
+        <span>Username</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your nickname!">
+        <input nz-input id="name" formControlName="name" />
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item nz-row class="register-area">
+      <nz-form-control [nzSpan]="14" [nzOffset]="6">
+        <button nz-button nzType="primary" [disabled]="validateForm.invalid">Register</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+
+</div>
+  
