@@ -1,0 +1,105 @@
+<!-- <div class="car-list-container">
+    <nz-table #basicTable [nzData]="cars" [nzBordered]="true" [nzScroll]="{ x: '1000px' }">
+      <thead>
+        <tr>
+          <th nzWidth="150px">Car Name</th>
+          <th nzWidth="150px">Brand</th>
+          <th nzWidth="150px">Color</th>
+          <th nzWidth="150px">Type</th>
+          <th nzWidth="150px">Transmission</th>
+          <th nzWidth="150px">Description</th>
+          <th nzWidth="150px">Price</th>
+          <th nzWidth="150px">Year</th>
+          <th nzWidth="150px">Image</th>
+          <th nzWidth="150px">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td>{{ car.name }}</td>
+          <td>{{ car.brand }}</td>
+          <td>{{ car.color }}</td>
+          <td>{{ car.type }}</td>
+          <td>{{ car.transmission }}</td>
+          <td>{{ car.description }}</td>
+          <td>{{ car.price | currency }}</td>
+          <td>{{ car.year }}</td>
+          <td>
+            <img
+              *ngIf="car.processedImage"
+              [src]="car.processedImage"
+              alt="Car Image"
+              class="car-image"
+            />
+          </td>
+          <td>
+            <button
+              nz-button
+              nzType="primary"
+              
+              routerLink="/admin/car/{{car.id}}"
+            >
+              Update Car
+            </button>
+            <br>
+            <button
+              nz-button
+              nzType="primary"
+              nzDanger
+              (click)="deleteCar(car.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+   -->
+
+
+   <div style="background-color: #F8F8F8; min-height: 91vh;">
+    <div style="padding-top: 10px;"></div>
+    <div style="margin-top: 10px;" class="child" *ngFor="let car of cars">
+      <div nz-row>
+        <div nz-col nzSpan="8">
+          <img
+            class="profile"
+            style="height: 130px; width: 200px; border-radius: 10px;"
+            [src]="car.processedImage"
+            alt="Car Image"
+          />
+        </div>
+        <div nz-col nzSpan="16">
+          <h2 style="cursor: pointer; color: #108ee9;">
+            {{ car.brand }} - {{ car.name }}
+          </h2>
+          <p>{{ car.description }}</p>
+          <h5>
+            Price: <b>{{ car.price | currency }}</b> - Color: <b>{{ car.color }}</b> -
+            Transmission: <b>{{ car.transmission }}</b> - Type: <b>{{ car.type }}</b> -
+            Year: <b>{{ car.year }}</b>
+          </h5>
+          <button
+            nz-button
+            nzType="primary"
+            style="margin-top: 10px;"
+            routerLink="/admin/car/{{ car.id }}"
+          >
+            Update Car
+          </button>
+  
+          <button
+            nz-button
+            style="margin-top: 10px;"
+            nzDanger
+            (click)="deleteCar(car.id)"
+          >
+            Delete Car
+          </button>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+  

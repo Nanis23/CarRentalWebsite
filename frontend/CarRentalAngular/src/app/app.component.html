@@ -1,0 +1,54 @@
+<div *ngIf="!isAdminLogedIn && !isCustomerLogedIn">
+  <nz-page-header style="background-color: rgba(9, 145, 199, 0.678);">
+    <nz-page-header-title class="title-text">Car Rental Troyanis</nz-page-header-title>
+    <nz-page-header-extra>
+      <nz-space>
+        <button *nzSpaceItem nz-button><a nzType="link" routerLink="/register" routerLinkActive="active">Sign up</a></button>
+        
+        <button *nzSpaceItem nz-button nzType="primary"><a nzType="link" routerLink="/login" routerLinkActive="active">Login</a></button>
+      </nz-space>
+    </nz-page-header-extra>
+  </nz-page-header>
+</div>
+
+<!--Admin navbar-->
+<div *ngIf="isAdminLogedIn">
+  <nz-page-header style="background-color: rgba(9, 145, 199, 0.678);">
+    <nz-page-header-title class="title-text">Loged in Admin</nz-page-header-title>
+    <nz-page-header-extra>
+      <nz-space>
+        <button *nzSpaceItem nz-button><a nzType="link" routerLink="/admin/dashbboard" routerLinkActive="active">Dashboard</a></button>
+        <button *nzSpaceItem nz-button><a nzType="link" routerLink="/admin/car" routerLinkActive="active">Post Car</a></button>
+        <button *nzSpaceItem nz-button><a nzType="link" routerLink="/admin/bookings" routerLinkActive="active">Bookings</a></button>
+
+        
+        <button *nzSpaceItem nz-button nzType="primary"><a nzType="link" (click)="logout()"  routerLinkActive="active">Logout</a></button>
+      </nz-space>
+    </nz-page-header-extra>
+  </nz-page-header>
+</div>
+
+<!--Customer navbar-->
+<div *ngIf="isCustomerLogedIn">
+  <nz-page-header style="background-color: rgba(9, 145, 199, 0.678);">
+    <nz-page-header-title class="title-text">Loged in Customer</nz-page-header-title>
+    <nz-page-header-extra>
+      <nz-space>
+        <button *nzSpaceItem nz-button><a nzType="link" routerLink="/customer/dashbboard" routerLinkActive="active">Dashboard</a></button>
+        <button *nzSpaceItem nz-button><a nzType="link" routerLink="/customer/my_bookings" routerLinkActive="active">My Bookings</a></button>
+
+        <button *nzSpaceItem nz-button nzType="primary"><a nzType="link" (click)="logout()"  routerLinkActive="active">Logout</a></button>
+      </nz-space>
+    </nz-page-header-extra>
+  </nz-page-header>
+</div>
+
+
+<router-outlet></router-outlet>
+
+<!-- NG-ZORRO -->
+<!--
+<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
+  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
+</a>-->
+

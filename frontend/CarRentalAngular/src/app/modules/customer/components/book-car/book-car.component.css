@@ -1,0 +1,166 @@
+/* General container styling */
+div.child {
+  margin: 20px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.child:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+img.profile {
+  object-fit: cover;
+  border: 2px solid #ddd;
+  transition: transform 0.2s;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+img.profile:hover {
+  transform: scale(1.05);
+}
+
+/* Header styling */
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  text-align: center;
+  color: #108ee9;
+}
+
+h2:hover {
+  text-decoration: underline;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Info line styling */
+h5 {
+  font-size: 0.9rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+}
+
+h5 b {
+  color: #108ee9;
+}
+
+/* Button styling */
+button[nz-button] {
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+button[nz-button]:hover {
+  background-color: #0c79d8;
+  border-color: #0c79d8;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Divider styling */
+hr {
+  margin: 15px 0;
+  border: 1px solid #eee;
+  width: 100%;
+}
+
+/* Form styling */
+.dashboard-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+}
+
+.filter-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Date Picker Fields */
+nz-form-item {
+  width: 100%;
+}
+
+nz-form-label {
+  text-align: left;
+}
+
+nz-form-control {
+  width: 100%;
+}
+
+/* Book Car Button */
+button.filterBtn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Responsive layout adjustments */
+@media screen and (max-width: 768px) {
+  div.child {
+    padding: 10px;
+  }
+
+  img.profile {
+    width: 100%;
+    height: auto;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  p,
+  h5 {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  button[nz-button] {
+    font-size: 0.9rem;
+  }
+
+  .dashboard-filter {
+    width: 100%;
+  }
+
+  .filter-grid {
+    gap: 10px;
+  }
+}
